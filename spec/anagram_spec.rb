@@ -15,4 +15,9 @@ describe Anagram do
     input = %w[ruby rots sort file list]
     expect(anagram.find(input)).to match_array [%w[rots sort]]
   end
+
+  it "returns the correct number of anagrams" do
+    input = %w[ruby rots are sort ear file rear list]
+    expect(anagram.find(input).flatten.length).to eq 4
+  end
 end
