@@ -13,6 +13,6 @@ describe Anagram do
 
   it "returns just the anagrams" do
     input = %w[ruby rots sort file list]
-    expect(anagram.find(input)).to match_array %w[rots sort]
+    expect(anagram.find(input)).to match_array [%w[rots sort]]
   end
 end

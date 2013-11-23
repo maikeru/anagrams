@@ -6,9 +6,11 @@ class Anagram
       dictionary[key] ||= Array.new
       dictionary[key].push word
     end
-    result = word_list.select do |word|
-      key = word.downcase.chars.sort.join
-      true if dictionary[key].length > 1
+    result = Array.new
+    dictionary.each do |key, words|
+      if words.length > 1
+        result.push words
+      end
     end
     return result
   end
