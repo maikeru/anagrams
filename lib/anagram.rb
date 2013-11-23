@@ -4,12 +4,12 @@ class Anagram
     word_list.each do |word|
       key = word.downcase.chars.sort.join
       dictionary[key] ||= Array.new
-      dictionary[key].push word
+      dictionary[key] << word
     end
     result = Array.new
-    dictionary.each do |key, words|
+    dictionary.each_value do |words|
       if words.length > 1
-        result.push words
+        result. << words
       end
     end
     return result
