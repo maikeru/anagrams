@@ -1,13 +1,15 @@
 class Anagram
   def find word_list
-    dictionary = Hash.new
+    groups = Hash.new { Array.new }
     word_list.each do |word|
-      key = word.downcase.chars.sort.join
-      dictionary[key] ||= Array.new
-      dictionary[key] << word
+      groups[key_for word] = groups[key_for word] << word.chomp
     end
-    dictionary.values.select do |words|
+    groups.values.select do |words|
       words.length > 1
     end
+  end
+
+  def key_for word
+    word.downcase.chars.sort.join
   end
 end
